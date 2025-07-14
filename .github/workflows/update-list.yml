@@ -1,6 +1,7 @@
 name: Weekly update of role-based-email list
 
 on:
+  workflow_dispatch:
   schedule:
     # Runs at 00:00 UTC every Monday
     - cron: '0 0 * * MON'
@@ -19,7 +20,7 @@ jobs:
           node-version: '24'
 
       - name: Fetch & extract const strings
-        run: node scripts/extract-consts.js
+        run: node scripts/extract.js
 
       - name: Commit and push changes
         run: |
